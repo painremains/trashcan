@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Bakehouse.Models.Bakery>
+@{
+    //ViewData["Title"] = "Пекарня";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Учет выпечки</title>
+    <style>
+        table {
+            border: 1px solid #ccc;
+            border-spacing: 3px;
+        }
+
+        td, th {
+            border: solid 1px #ccc;
+        }
+    </style>
+    <table>
+</head>
+<table>
+    <tbody>
+        <tr>
+            <th colspan="7">Выпечка</th>
+        </tr>
+        <tr>
+            <th>Изделие</th>
+            <th>Цена(руб.)</th>
+            <th>Текущая цена с учетом скидки(руб.)</th>
+            <th colspan="2">Прогноз</th>
+            <th>Наличие</th>
+            <th>Дата изготовления</th>
+            @foreach (var product in Model)
+            {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.CurrentPrice</td>
+                <td>@product.FutureTime</td>
+                <td>@product.FuturePrice</td>
+                <td>@product.InStockStatus</td>
+                <td>@product.BakeTime</td>
+            </tr>
+            }
+    </tbody>
+</table>
